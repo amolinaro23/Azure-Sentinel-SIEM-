@@ -43,4 +43,24 @@ When you get to the **Basics** of creating our workspace, the drop down next to 
 ![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/ac70ea5c-428f-4991-9e88-512a7223c33f)
 
 
-<h2>Step 4 - </h2>
+<h2>Step 4 - Enabling Log Gathering in Microsoft Defender for Cloud</h2>
+
+The next step will be to enable the ability to gather the logs. In the search bar, search for **Microsoft Defender for Cloud**. In the navigation pane, find **Management** and select **Environment Settings**. You should be able to see our workspace labeled with your honeypot name. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/68d928c7-24e2-4b45-9af2-6f60e1ebf04f)
+
+At the **Settings** page, you will want to turn OFF the **SQL servers on machines** and turn ON **Servers**. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/9d6366a4-3411-4ef0-a6df-24a6fa28db92)
+
+On the navigation page, click on **Data collection** and select **All Events**
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/8aaa42d5-d869-4bed-bee5-1890c1e004aa)
+
+<h2>Step 5 - Connect Log Analytics to VM</h2>
+
+Back in the search bar, go back to **Log Analytics Workspaces** and select your titled workspace. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/846573e2-439b-4c68-9916-daad6f13c702)
+
+On the 
