@@ -117,4 +117,81 @@ If you also did not fail to login to the VM initially, go to YOUR computer and b
 
 If you scroll you should see the **Source Network Address** copy it. 
 
-<h2>Step 9 - </h2>
+<h2>Step 9 - Disable the VM Firewall</h2>
+
+We are going to disable the firewall on our VM to allow hackers to discover the machine online. Go back to your computer and open a command line. Use the **ping** command and ping your VM. The request should time out. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/f8d3f9dd-e7c3-4d56-9de1-878442c36cd7)
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/a83c5242-570a-425c-b8aa-6f73460c3c66)
+
+So, go back to the VM and go to **Start** and search **wf.msc**. This will open a new window displaying the firewall configuration. At the bottom of the top pane, click **Windows Defender Firewall Properties** and turn ALL (Domain, Private, Public) the firewall **off**. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/522c535a-fc78-4361-b185-f32171cd1e8d)
+
+Back on your PC's command line, you should start seeing ping requests. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/09d64529-5944-4f6c-806f-63d196166097)
+
+<h2>Step 10 - Download PowerShell Script</h2>
+
+On the VM, go to Microsoft Edge and follow the link to download the PowerShell script from Github. 
+
+https://github.com/joshmadakor1/Sentinel-Lab/blob/main/Custom_Security_Log_Exporter.ps1
+
+You will click on the **Custom Security Log Export** file. Josh explained in his video you can either download the script or just copy it. I went ahead and just copied it. Next, open **PowerShell ISE** on the VM. Once it opens, we'll click **new** and paste the script into PowerShell ISE. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/296d377a-d277-49b3-adf0-432df2a6f3f9)
+
+Save the PowerShell script to the Desktop on the VM. Now, we will need our own API number. Go the Microsoft Edge on the VM and go to ipgeolocation.io and signup. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/7974053b-4acc-4fcc-b028-4282534551a6)
+
+After you sign up and sign back in, you'll see your API key. Paste that into the PowerShell script at the top. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/6fbf4c3f-b02c-4d47-84f4-34444436ce10)
+
+After you've completed that step, you can run the script. The script is capturing all the data from the Event Log that we opened earlier. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/34786b7a-6525-4a0c-9e9f-c35b9d34b149)
+
+<h2>Step 11 - Access Log Data from Script</h2>
+
+The log data from this script is programmed to save to a hidden path within the C-Drive. We have to manually access this drive since it is hidden. Go to start and search **Run** then open the file by typing **C:\ProgramData\** 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/72e9bfee-b9d6-4d49-9abe-86a0278e7b98)
+
+The folder will open and at the bottom  you'll see the newly created log files. Open the **failed_rdp** file. That contains all the failed login attempts using that Event#4625 we talked about earlier. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/ad4011ac-856d-45fe-a112-fd4df065d012)
+
+<h2>Step 12 - Create Custom Log in Log Analytics Workspace</h2>
+
+Minimize your VM and go back to Azure. There have been updates to Azure since Josh originally completed this lab, so here are the steps I found to get the rest of this to work. First, search **Log Analytics workspaces** in Azure and select your honeypot workspace. In the left navigation pane, click **Tables** then in the main window click **Create**. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/bd06d85c-9c5f-48fd-93c4-d1fdd1e24f86)
+
+We will need to move the **failed_rdp** log file from our VM to our actual PC. Go to your VM and if you still have the file manager running, you can click on the **failed_rdp** file and select and copy the whole record. Open **notepad** on your pc and paste the log file. Make sure to save the log file somewhere easy (desktop). 
+
+Now, back on your PC in Azure, when you clicked create, select **New custom log (MMA-based)**. Input your saved failed_rdp file into the dropdown in the next window. Then at the bottom click, **Next**. On the **Collections Path** tab, under **Type** select **Windows** and in the path type **C:\ProgramData\failed_rdp.log** as that is the path to the file in our VM. Click **Next** and then in the details tab name your log, I choose what Josh did, "Failed_RDP_With_Geo", then click **Next** and then **Create** on the next page. 
+
+On your PC, if you go to the left Navigation pane and select **Logs**, in the New Query 1, type **SecurityEvent** and you will be able to see the Windows logs from the VM. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/c3a4e3a1-dbf5-4e7d-b6cb-bee12efa5cb2)
+
+Back in logs, type **SecurityEvent | where EventIT == 4625** now you can see all the failed login attempts on our VM. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/44c8d06a-422e-4276-9dab-89fbe4e1f6ac)
+
+Our custom log will take some time to update. Take a break and check back periodically by typing **Failed_RDP_With_Geo** or whatever you named your custom log. 
+
+<h2>Step 13 - Extrat Raw Data from Logs </h2>
+
+
+
+
+
+
+
+
+
