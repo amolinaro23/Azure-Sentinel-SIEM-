@@ -95,8 +95,26 @@ Accept the certificate warning.
 
 ![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/822f51b6-c0b6-4afc-9484-77f01c72e209)
 
+As the VM loads, and the privacy settings page pops up. Select **NO** for all the options then hit select. 
 
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/99f5dcfb-7ece-44f5-905c-85048d60f383)
 
+Go ahead and set up Microsoft Edge. Then go to start and search **Event Viewer**. 
 
+<h2>Step 8 - Observe Event Viewer Logs in VM</h2>
 
+In the VM, search for Event Viewer from the start menu. Then in the left navigation pane, expand the **Windows Logs** and then select **Security**. What you see are all the security events that have transpired so far. 
 
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/31a52718-41ac-470b-8a52-a6b496603a97)
+
+Now, in Josh's example of this lab, he mistaken failed a login attempt and has a log for event # 4625. I did not fail a login attempt, therefore I did not have this event in my logs. Instead, for the sake of explaination, I used my successful login attempt instead. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/7ea9ed2a-6e62-4ec4-bdb5-1dc9612d4d96)
+
+If you also did not fail to login to the VM initially, go to YOUR computer and back to Remote Desktop and attempt to log in to the VM again with the wrong credentials. Go back to the VM and refresh the log. You should now see the **Audit Failure** with the event ID of 4625. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/f6442591-4d60-4569-b5e3-2abc915efef4)
+
+If you scroll you should see the **Source Network Address** copy it. 
+
+<h2>Step 9 - </h2>
