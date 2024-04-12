@@ -63,4 +63,40 @@ Back in the search bar, go back to **Log Analytics Workspaces** and select your 
 
 ![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/846573e2-439b-4c68-9916-daad6f13c702)
 
-On the 
+On the navigation pane to the left, scroll until you see **Virtual Machines (deprecated)** and select it. You should see our VM we created. Click the VM name and on the next window click **Connect**. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/04973ee4-f800-4287-b1ce-82f9a2821c01)
+
+<h2>Step 6 - Set Up Sentinel</h2>
+
+As the Log Analytics are loading, open up a new tab to **portal.azure.com**. Search for **Sentinel**. On the Microsoft Sentinel page, click the blue **Create Microsoft Sentinel** button. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/328d4c35-1f03-4b3c-9c6f-2c00b4922614)
+
+Then, you should see our Honeypot workspace appear. Select your workspace and then click **Add** at the bottom of the screen. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/3b492262-7f1b-4459-8093-9e71022bdd10)
+
+<h2>Step 7 - Log in to VM</h2>
+
+In the search bar, search **Virtual Machines**. By this time, everything should be connected and ready to go and you will see your VM. Select the honeypot VM and copy your Public IP address for the VM. 
+
+**Side note and troubleshooting** - If your VM doesn't have an IP address (mine didn't initially), check to see if you have other VMs on your account (if this isn't your first time creating one). I ran into an issue because I had done a previous lab with two other VMs in Azure and the free trial doesn't allow you to have that many public IP addresses... ANYWAY, click on the VM and in the navigation pane, select **Network Settings**. In the new window pane you should see next to **Public IP** there is a **(configure)** hyperlink, click it. Now select the **ipconfig1** at the bottom and check the box next to **Associate public IP address**. In the drop down menu, select your VM and click **Create a public IP address**. You should be able to just click **OK**, then **Save**, then **Create**. Azure should begin deploying the IPv4 configuration to the VM. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/77edd716-1cc8-4d77-b75f-cead0ec416c6)
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/74d5cdf8-349c-42cb-82ec-72dc2eb4b8a5)
+
+BACK TO STEP 7 - In Windows (your PC), search for **Remote Desktop Connection**. Enter your VM's Public IP address and then at the bottom of the authentication select **More choices** and select **Use a different account**. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/81078109-311c-4378-8d67-88913dc1363d)
+
+Accept the certificate warning. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/822f51b6-c0b6-4afc-9484-77f01c72e209)
+
+
+
+
+
+
