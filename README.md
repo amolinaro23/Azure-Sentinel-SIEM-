@@ -187,7 +187,7 @@ Our custom log will take some time to update. Take a break and check back period
 
 <h2>Step 13 - Extrat Raw Data from Logs </h2>
 
-
+We are going to parse and organize the information for when we extract the data. Expand one of the logs
 
 
 
