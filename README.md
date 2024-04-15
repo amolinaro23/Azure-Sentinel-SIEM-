@@ -187,11 +187,39 @@ Our custom log will take some time to update. Take a break and check back period
 
 <h2>Step 13 - Extrat Raw Data from Logs </h2>
 
-We are going to parse and organize the information for when we extract the data. Expand one of the logs
+We are going to parse and organize the information for when we extract the data. To do this, copy the following script and run it. 
 
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/9ba3e184-5953-4c19-b3c3-6f3208b2a9d1) 
 
+You should now see the information from the raw data has been parsed and organized by country, state, sourcehost, username, destination, longitude, and latitude. 
 
+<h2>Step 13 - Setup Map in Sentinel with Latitude and Longitude</h2>
 
+Leave your parsed log data open and open a new tab and go to **portal.azure.com** and then search for **Sentinel**. In Sentinel, select your Honeypot workspace. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/89643e2b-c1f8-415b-87c9-56bd3af4cdbe)
+
+Now, I had to take care of my daughter when I originally started this lab... so this information from Sentinel is over the course of a couple days... but, you can see the specific **Failed_RDP_Honeypot** instances highlighted by Sentinel. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/4b5a8825-9e0b-4b47-a5ef-d42cd62178e7)
+
+<h2>Step 14 - Setting Up Our Map</h2>
+
+In Sentinel, in the left navigation pane, select **Workbooks**. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/64b15afa-4a30-482a-ab60-f98320ce57b6)
+
+At the top of the Workbooks page, select **Add Workbook** 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/2953717f-374b-41b4-996a-bb4418b3af3f)
+
+Then click, **Edit** 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/30117c91-0763-4258-b13d-c8f21ed8c1ed)
+
+At the far right of the Workbook, you should see the word **Edit** with the three dots. Click the dots and select to **Remove** the two predisposed widgets. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/9464ec25-7a3f-45f5-93da-73e39db64f95)
 
 
 
