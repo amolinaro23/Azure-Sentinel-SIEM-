@@ -229,5 +229,7 @@ Now, we will run our query with our parsed categories. In the script of your wor
 
 ![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/9fecb9d9-35c1-42c3-b69f-85b5aadd7bb1)
 
-Make sure to save your map! What you can do, is buy the subscription to the 
+Make sure to save your map! What you can do, is buy the subscription to the ipgeolocation and allow the attacks to continue on and watch your map grow as more attacks happen. I choose to stay with the free trail and therefore only had 1,000 attacks logged. 
+
+I hope you enjoyed the lab! It was very interesting to see all this happen in real-time and gave me vaulable experience with Azure. 
 
