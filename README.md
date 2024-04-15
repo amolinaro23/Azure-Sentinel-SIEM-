@@ -221,5 +221,13 @@ At the far right of the Workbook, you should see the word **Edit** with the thre
 
 ![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/9464ec25-7a3f-45f5-93da-73e39db64f95)
 
+Then, when the Owl and the **This Azure Sentinels Report has no content** appears, below the Owl click **Add** 
 
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/aaecf54d-a9db-4dbe-a15a-8d7cfc5adf42)
+
+Now, we will run our query with our parsed categories. In the script of your workbook, copy the same script we used to categorized our rawdata. Then, at the top of the query panel there is a dropdown box under **Visualiztion**, select **Map** from that dropdown. 
+
+![image](https://github.com/amolinaro23/Azure-Sentinel-SIEM-/assets/164687651/9fecb9d9-35c1-42c3-b69f-85b5aadd7bb1)
+
+Make sure to save your map! What you can do, is buy the subscription to the 
 
